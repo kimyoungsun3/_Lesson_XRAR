@@ -97,16 +97,16 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         public void Update()
         {
-			if (Input.GetMouseButtonDown(0))
-			{
-				Debug.Log("s:" + Time.realtimeSinceStartup);
-				float x = 0;
-				for(int i = 0; i < 100000000; i++)
-				{
-					x += 1;
-				}
-				Debug.Log("e:" + Time.realtimeSinceStartup);
-			}
+			//if (Input.GetMouseButtonDown(0))
+			//{
+			//	Debug.Log("s:" + Time.realtimeSinceStartup);
+			//	float x = 0;
+			//	for(int i = 0; i < 100000000; i++)
+			//	{
+			//		x += 1;
+			//	}
+			//	Debug.Log("e:" + Time.realtimeSinceStartup);
+			//}
 
 			DoCreateMesh();
 
