@@ -5,9 +5,10 @@ using GoogleARCore.Examples.HelloAR;
 
 public class Ui_CreateMesh : MonoBehaviour
 {
-	public HelloARController2 ar;
+	//public HelloARController2 ar;
 	public void Invoke_CreateMesh()
 	{
-		ar.CreateMeshing(true);
+		//ar.CreateMeshing(true);
+		HelloARController2.ins.CreateMeshing(true);
 	}
 }

@@ -36,6 +36,7 @@ namespace GoogleARCore.Examples.HelloAR
     /// </summary>
     public class HelloARController2 : MonoBehaviour
     {
+		public static HelloARController2 ins;
         /// <summary>
         /// The first-person camera being used to render the passthrough camera image (i.e. AR
         /// background).
@@ -81,6 +82,7 @@ namespace GoogleARCore.Examples.HelloAR
 		/// </summary>
 		public void Awake()
         {
+			ins = this;
             // Enable ARCore to target 60fps camera capture frame rate on supported devices.
             // Note, Application.targetFrameRate is ignored when QualitySettings.vSyncCount != 0.
             Application.targetFrameRate = 60;
@@ -201,9 +203,7 @@ namespace GoogleARCore.Examples.HelloAR
 				{
 					line.SetPosition(i, list[i].position);
 				}
-			}
-
-		}
+			}		}
 
 		bool bCreateMesh;
 		public void CreateMeshing(bool _bCreateMesh)
