@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Ui_ItemScrollView : MonoBehaviour
 {
+	public static Ui_ItemScrollView ins;
 	public GameObject goSelectTile;
 	private void Awake()
 	{
+		ins = this;
 		gameObject.SetActive(false);
 	}
 
@@ -24,7 +26,7 @@ public class Ui_ItemScrollView : MonoBehaviour
 		{
 			GameObject _go = NGUITools.AddChild(grid.gameObject, prefabTileItem.gameObject);
 			_scp = _go.GetComponent<TileItem>();
-			_scp.SetInit(this, listTexture[i]);
+			_scp.SetInit(listTexture[i]);
 		}
 		DestroyImmediate(prefabTileItem.gameObject);
 		scrollview.ResetPosition();
@@ -40,6 +42,11 @@ public class Ui_ItemScrollView : MonoBehaviour
 	public void Invoke_Hide()
 	{
 		gameObject.SetActive(false);
+	}
+
+	public void SetSelectTileData(TileItem _scp)
+	{
+		Ui_SelectTile.ins.SetSelectTileData(_scp);
 	}
 
 }

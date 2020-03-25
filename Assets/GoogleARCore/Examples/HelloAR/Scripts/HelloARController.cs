@@ -83,6 +83,7 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         public void Update()
         {
+			
             _UpdateApplicationLifecycle();
 
             // If the player has not touched the screen, we are done with this update.

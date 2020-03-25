@@ -1,43 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GoogleARCore.Examples.HelloAR;
 
 public class Ui_SelectTile : MonoBehaviour
 {
 	public static Ui_SelectTile ins;
-	[HideInInspector]public TileInfo tileInfo;
+	[HideInInspector]public TileItem tileItem;
 	[SerializeField] UITexture uiTexture;
-	[SerializeField] Ui_ItemScrollView uiItemScrollView;
-	[SerializeField] GoogleARCore.Examples.HelloAR.HelloARController2 controller;
+	//[SerializeField] GoogleARCore.Examples.HelloAR.HelloARController2 controller;
 
 
 	private void Awake()
 	{
 		ins = this;
-		//gameObject.SetActive(false);
 	}
 
-	public void SetSelectTileData(TileInfo _tileInfo)
+	public void SetSelectTileData(TileItem _tileItem)
 	{
-		//if(uiTexture == null)
-		//	uiTexture = GetComponent<UITexture>();
-		
-		tileInfo = _tileInfo;
-		uiTexture.mainTexture = _tileInfo.texture;
-		controller.SetMaterial(_tileInfo.texture);
+		tileItem = _tileItem;
+		uiTexture.mainTexture = tileItem.tileInfo.texture;
+		HelloARController2.ins.SetMaterial(tileItem.tileInfo.texture);
+		//Debug.Log(tileItem.tileInfo.xxx);
 
 		gameObject.SetActive(true);
 	}
-
-	//public void Invoke_InVisiable()
-	//{
-	//	gameObject.SetActive(false);
-	//}
-
 	public void Invoke_Show_ItemScrollView()
 	{
-		uiItemScrollView.gameObject.SetActive(true);
-		uiItemScrollView.InitData();
-		//gameObject.SetActive(false);
+		Ui_ItemScrollView.ins.gameObject.SetActive(true);
+		Ui_ItemScrollView.ins.InitData();
 	}
 }

@@ -6,20 +6,16 @@ using UnityEngine;
 public class TileInfo
 {
 	public Texture texture;
+	public int xxx;
 }
 
 public class TileItem : MonoBehaviour
 {
-	TileInfo tileInfo;
-	UITexture texture;
-	Ui_ItemScrollView scpParent;
+	public TileInfo tileInfo;
+	public UITexture texture;
 
-	public void SetInit(Ui_ItemScrollView _scpParent, Texture _texture)
+	public void SetInit(Texture _texture)
 	{
-		scpParent = _scpParent;
-
-		if (texture == null)
-			texture = GetComponent<UITexture>();
 		if(tileInfo == null)
 			tileInfo = new TileInfo();
 
@@ -29,6 +25,6 @@ public class TileItem : MonoBehaviour
 
 	public void Invoke_Select()
 	{
-		Ui_SelectTile.ins.SetSelectTileData(tileInfo);
+		Ui_ItemScrollView.ins.SetSelectTileData(this);
 	}
 }
