@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class TileInfo
-{
+{ 
 	public Texture texture;
 	public int xxx;
 }
